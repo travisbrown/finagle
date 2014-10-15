@@ -4,6 +4,8 @@ import Tests._
 import com.twitter.scrooge.ScroogeSBT
 import com.typesafe.sbt.SbtSite.site
 import com.typesafe.sbt.site.SphinxSupport.Sphinx
+import org.scoverage.coveralls.CoverallsPlugin.coverallsSettings
+import scoverage.ScoverageSbtPlugin.instrumentSettings
 
 object Finagle extends Build {
   val libVersion = "6.20.0"
@@ -47,7 +49,7 @@ object Finagle extends Build {
     version := libVersion,
     organization := "com.twitter",
     crossScalaVersions := Seq("2.9.2", "2.10.4"),
-    scalaVersion := "2.9.2",
+    scalaVersion := "2.10.4",
     libraryDependencies ++= Seq(
       "org.scalatest" %% "scalatest" % "1.9.1" % "test",
       "org.scala-tools.testing" %% "specs" % "1.6.9" % "test" cross CrossVersion.binaryMapped {
@@ -138,7 +140,7 @@ object Finagle extends Build {
         IO.write(file, contents)
         Seq(file)
       }
-  )
+  ) ++ instrumentSettings ++ coverallsSettings
 
   val jmockSettings = Seq(
     libraryDependencies ++= Seq(

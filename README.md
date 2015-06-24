@@ -1,3 +1,14 @@
+# Finagle
+
+[![Build status](https://travis-ci.org/travisbrown/finagle.svg?branch=develop)](https://travis-ci.org/travisbrown/finagle)
+[![Coverage status](https://img.shields.io/coveralls/travisbrown/finagle/develop.svg)](https://coveralls.io/r/travisbrown/finagle?branch=develop)
+[![Project status](https://img.shields.io/badge/status-active-brightgreen.svg)](#status)
+
+## Status
+
+This project is used in production at Twitter (and many other organizations),
+and is being actively developed and maintained.
+
 ![Finagle logo](https://raw.github.com/twitter/finagle/master/doc/src/sphinx/_static/logo_small.png)
 
 ## Getting involved

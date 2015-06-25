@@ -30,6 +30,7 @@ script:
   # don't test these projects because they don't pass on travis-ci
   - ./sbt ++$TRAVIS_SCALA_VERSION finagle-http/test:compile
   - ./sbt ++$TRAVIS_SCALA_VERSION finagle-memcached/test:compile
+  - ./sbt ++$TRAVIS_SCALA_VERSION finagle-memcachedx/test:compile
   - ./sbt ++$TRAVIS_SCALA_VERSION finagle-mux/test:compile
 
   # run conditionally because they don't pass with openjdks
@@ -43,7 +44,6 @@ script:
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-httpx/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-kestrel/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-mdns/test
-  - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-memcachedx/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-mysql/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-ostrich4/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-redis/test

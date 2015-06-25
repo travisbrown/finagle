@@ -27,10 +27,10 @@ before_script:
   - travis_retry ./sbt ++$TRAVIS_SCALA_VERSION update
 
 script:
-  # skip these projects because they don't pass on travis-ci
-  - echo skip ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-http/test
-  - echo skip ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-memcached/test
-  - echo skip ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-mux/test
+  # don't test these projects because they don't pass on travis-ci
+  - ./sbt ++$TRAVIS_SCALA_VERSION finagle-http/test:compile
+  - ./sbt ++$TRAVIS_SCALA_VERSION finagle-memcached/test:compile
+  - ./sbt ++$TRAVIS_SCALA_VERSION finagle-mux/test:compile
 
   # run conditionally because they don't pass with openjdks
   - if [[ "$TRAVIS_JDK_VERSION" = oraclejdk* ]]; then ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-native/test; fi
@@ -40,8 +40,10 @@ script:
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-core/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-exception/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-exp/test
+  - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-httpx/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-kestrel/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-mdns/test
+  - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-memcachedx/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-mysql/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-ostrich4/test
   - ./sbt ++$TRAVIS_SCALA_VERSION coverage finagle-redis/test

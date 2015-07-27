@@ -20,6 +20,11 @@ if [ "$FINAGLE_BRANCH" != "master" ]; then
   git clone https://github.com/twitter/ostrich.git --branch develop
   cd ostrich
   $FINAGLE_SBT ++$TRAVIS_SCALA_VERSION publishLocal
+  # scrooge
+  cd $FINAGLE_TMP_DIR
+  git clone https://github.com/twitter/scrooge.git --branch develop
+  cd scrooge
+  $FINAGLE_SBT ++$TRAVIS_SCALA_VERSION publishLocal
   # clean up
   cd $FINAGLE_DIR
   rm -rf $FINAGLE_TMP_DIR
